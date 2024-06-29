@@ -1,0 +1,102 @@
+
+<div class="ww">
+    <!-- Form Name -->
+    <legend>PayFees</legend>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_id">Student ID</label>  
+      <div class="col-md-4">
+      <input id="product_id" name="product_id" placeholder="STUDENT ID" [(ngModel)]="studentid" class="form-control input-md" required="" type="text">
+      
+      </div>
+    </div>
+    <!-- Button -->
+    <div class="form-group">
+      
+      <div class="col-md-4">
+        <button id="addbutton" (click)="getsutdentinfo()" name="addbutton" class="btn btn-primary">Get Student Info</button>
+      </div>
+      <div class="col-md-4">
+        <button id="GetStudentPaidfeesInfo" (click)="getsutdentpaidfees()" name="GetStudentPaidfeesInfo" class="btn btn-primary">Get Student Paid fees Info</button>
+      </div>
+      
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Students List</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Gender</th>
+                        <th>Section</th>
+                        <th>Address</th>
+                        <th>AddmissionDate</th>
+                        <th>PendingFee</th>
+                        <th>AdvanceFee</th>
+                        <th>MonthlyFee</th>
+                        <th>PaidFee</th>
+                        <th>Travling Status</th>
+                        <th>TutionFee</th>
+                        <th>Active Status</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let payfees of payf|async">
+                    <tr *ngIf="payfees.studentid==studentid">
+    <td>{{payfees.studentid}}</td>
+    <td>{{payfees.studentname}}</td>
+    <td>{{payfees.studentclass}}</td>
+    <td>{{payfees.studentgender}}</td>
+    <td>{{payfees.studentsection}}</td>
+    <td>{{payfees.studentaddress}}</td>
+    <td>{{payfees.studentaddmissiondate}}</td>
+    <td>{{payfees.studentpendingfee}}</td>
+    <td>{{payfees.studentadvancfee}}</td>
+    <td>{{payfees.studentmonthlyfee}}</td>
+    <td>{{payfees.studentpaidfee}}</td>
+    <td>{{payfees.studenttravling}}</td>
+    <td>{{payfees.studenttutionfee}}</td>
+    <td>{{payfees.studentstatus}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Students fee tution fee List</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>studentduefee</th>
+                        <th>studentpaidfees</th>
+                        <th>studenttutionfeepaymode</th>
+                        <th>studentpaidfeesdate</th>
+                        <th>studenttutionfee</th>
+                        <th>studentpaidfeesslipno</th>
+                        <th>studentlastdateoffeesubmission</th>
+                        <th>studentlatfee</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let paidfees of paidf|async">
+                    <tr *ngIf="paidfees.studentid==studentid">
+    <td>{{paidfees.studentid}}</td>
+    <td>{{paidfees.studentduefee}}</td>
+    <td>{{paidfees.studentpaidfee}}</td>
+    <td>{{paidfees.studenttutionfeepaymode}}</td>
+    <td>{{paidfees.studentpaidfeesdate}}</td>
+    <td>{{paidfees.studenttutionfee}}</td>
+    <td>{{paidfees.studentpaidfeesslipno}}</td>
+    <td>{{paidfees.studentlastdateoffeesubmission}}</td>
+    <td>{{paidfees.studentlatfee}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>

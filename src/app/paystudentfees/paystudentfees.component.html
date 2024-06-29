@@ -1,0 +1,81 @@
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="product_id">Student ID</label>  
+    <div class="col-md-4">
+    <input id="product_id" name="product_id" placeholder="STUDENT ID" [(ngModel)]="studentid" class="form-control input-md" required="" type="text">
+    
+    </div>
+  </div>
+  <!-- Button -->
+  <div class="form-group">
+    
+    <div class="col-md-4">
+      <button id="addbutton" (click)="getsutdentinfo()" name="addbutton" class="btn btn-primary">Get Student Info</button>
+    </div>
+    <div class="col-md-4">
+      <button id="GetStudentPaidfeesInfo" (click)="getsutdentpaidfees()" name="GetStudentPaidfeesInfo" class="btn btn-primary">Get Student Paid fees Info</button>
+    </div>
+    
+  </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Students fee tution fee List</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Advance fees</th>
+                    
+                    <th> Fees paymode</th>
+                    <th> Pay fees date</th>
+                    <th> Tution fee</th>
+                    <th>Lastdate of fee submission</th>
+                    <th>Late fee(Rs.10 per day)</th>
+                    <th>Total amount fees</th>
+                    <th>paynow</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let paidfees of payf|async">
+                <tr *ngIf="paidfees.studentid==studentid">
+                    <td>
+             <input id="student_id" #student_id name="student_id" disabled #sid value="{{paidfees.studentid}}" class="form-control input-md" required="" type="text">
+             
+            </td>
+             <td>
+    <input id="studentadvancfee" #studentadvancfee name="studentadvancfee" #adv disabled placeholder=""   value="{{paidfees.studentadvancfee}}" class="form-control input-md" required="" type="text">
+     </td>
+   
+    <td>
+    <select #studenttutionfeepaymode id="studenttutionfeepaymode">
+        <option id="cash" value="cash">Cash</option>
+        <option id="online" value="online">Online</option>
+    </select>
+    </td>
+     <td>
+    <input id="studentpaidfeesdate" #studentpaidfeesdate disabled name="studentpaidfeesdate" placeholder="" value="{{paifeedate}}" class="form-control input-md" required="" type="text">
+    </td>
+     <td>
+    <input id="studenttutionfee" #studenttutionfee disabled name="studenttutionfee" placeholder="" value="{{paidfees.studenttutionfee}}" class="form-control input-md" required="" type="text">
+    </td>
+     
+     <td>
+    <input id="studentlastdateoffeesubmission" #studentlastdateoffeesubmission disabled name="studentlastdateoffeesubmission" placeholder="" value="{{month}}" class="form-control input-md" required="" type="text">
+     </td>
+     <td>
+        <input id="studentlatfee" #studentlatfee disabled name="studentlatfee" placeholder="" value="{{latefeeperday}}" class="form-control input-md" required="" type="text">
+         </td>              
+         <td>
+            <input id="studentpaidfee" #studentpaidfee disabled name="studentpaidfee" placeholder="" value="{{+paidfees.studenttutionfee+latefeeperday}}" class="form-control input-md" required="" type="text">
+           </td>
+           <td>
+            <button id="paytutionfeebtn" (click)="paytutionfee()" name="paytutionfeebtn" class="btn btn-primary">Payfee</button>
+              
+        </td>
+                </tr>
+                
+            </tbody>
+            
+        </table>
+    </div>
+</div>

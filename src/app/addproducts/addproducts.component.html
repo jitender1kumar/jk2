@@ -1,0 +1,50 @@
+
+
+
+<div class="ww">
+<!-- Form Name -->
+<legend>PRODUCTS</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_id">PRODUCT ID</label>  
+  <div class="col-md-4">
+  <input id="product_id" name="product_id" placeholder="PRODUCT ID" [(ngModel)]="id" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_name">PRODUCT Title</label>  
+  <div class="col-md-4">
+  <input id="product_name" name="product_name" placeholder="PRODUCT NAME" [(ngModel)]="title" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_description">PRODUCT description</label>
+  <div class="col-md-4">
+    <input id="product_description" name="product_description" [(ngModel)]="description" class="form-control">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_Quntity">PRODUCT Quntity</label>
+  <div class="col-md-4">                     
+    <input type="number" class="form-control" id="product_Quntity" [(ngModel)]="qty" name="product_Quntity">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  
+  <div class="col-md-4">
+    <button id="addbutton" (click)="addproduct()" name="addbutton" class="btn btn-primary">Add</button>
+  </div>
+  </div>
+</div>
